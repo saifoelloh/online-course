@@ -5,11 +5,9 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedEntityGraph;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
@@ -19,6 +17,9 @@ public class Course {
     @GeneratedValue
     private Long id;
     private String name;
+
+    @OneToMany(mappedBy = "course")
+    List<CourseStudent> lessons;
 
     @CreationTimestamp
     private LocalDateTime created_at;
