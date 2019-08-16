@@ -4,10 +4,12 @@ import com.example.demo.entity.Course;
 import com.example.demo.repository.RepositoryCourse;
 import com.example.demo.service.impl.InterfaceCourse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ServiceCourse implements InterfaceCourse {
     @Autowired private RepositoryCourse repository;
 
