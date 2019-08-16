@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Scanner;
+
 @SpringBootApplication
 public class OnlineCourseApplication {
 
@@ -25,8 +27,30 @@ public class OnlineCourseApplication {
     @Bean
     public CommandLineRunner demo() {
         return args -> {
-            for (Student student: repositoryStudent.findAll()) {
-                System.out.println(student.toString());
+            int limit = 0;
+            int stat = 0;
+            Student student = new Student();
+            Scanner input = new Scanner(System.in);
+
+            System.out.print("Input student\t: ");
+            stat = Integer.parseInt(input.nextLine());
+            if (stat==1) {
+                System.out.println("\nStudent");
+                System.out.println("-------------------------------");
+                System.out.print("name\t: ");
+                student.setName(input.nextLine());
+            }
+
+            System.out.print("\nTotal course\t: ");
+            limit = Integer.parseInt(input.nextLine());
+            System.out.println("Course");
+            System.out.println("-------------------------------");
+            for (int i = 0; i < limit; i++) {
+                Course course = new Course();
+                System.out.print("name\t: ");
+                course.setName(input.nextLine());
+                repositoryCourse.save(course);
+                System.out.println();
             }
         };
     }
