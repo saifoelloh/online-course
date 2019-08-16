@@ -4,10 +4,12 @@ import com.example.demo.entity.Student;
 import com.example.demo.repository.RepositoryStudent;
 import com.example.demo.service.impl.InterfaceStudent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ServiceStudent implements InterfaceStudent {
     @Autowired private RepositoryStudent repository;
 
