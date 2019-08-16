@@ -25,21 +25,8 @@ public class OnlineCourseApplication {
     @Bean
     public CommandLineRunner demo() {
         return args -> {
-            Student student1 = new Student("amron");
-            Student student2 = new Student("amran");
-            Course course1 = new Course("aaa");
-            Course course2 = new Course("bbb");
-            try {
-                repositoryCourse.save(course1);
-                repositoryCourse.save(course2);
-                repositoryStudent.save(student1);
-                repositoryStudent.save(student2);
-            } catch (Exception e) {
-                System.out.println(e);
-            } finally {
-                for (Student student: repositoryStudent.findAll()) {
-                    System.out.println(student.toString());
-                }
+            for (Student student: repositoryStudent.findAll()) {
+                System.out.println(student.toString());
             }
         };
     }
