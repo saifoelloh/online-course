@@ -19,4 +19,6 @@ public class CourseStudent {
     @MapsId("course_id")
     @JoinColumn(name = "course_id")
     private Course course;
+
+    private int rate;
 }
