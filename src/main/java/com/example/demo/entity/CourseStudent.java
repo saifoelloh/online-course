@@ -1,9 +1,10 @@
 package com.example.demo.entity;
 
 import lombok.Data;
-
+import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 
+@RequiredArgsConstructor
 @Data
 @Entity
 public class CourseStudent {
